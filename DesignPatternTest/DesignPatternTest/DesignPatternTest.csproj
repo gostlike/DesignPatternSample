@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdapterTest.cs" />
+    <Compile Include="ProxyTest.cs" />
     <Compile Include="FlyweightTest.cs" />
     <Compile Include="FacadeTest.cs" />
     <Compile Include="BridgeTest.cs" />
