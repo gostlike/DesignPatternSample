@@ -74,6 +74,7 @@ namespace DesignPatternTest
                 }
                 catch (ThreadInterruptedException e)
                 {
+                    Console.WriteLine(e.Message);
                 }
                 Console.WriteLine(".");
             }
@@ -87,7 +88,7 @@ namespace DesignPatternTest
     public class PrinterProxy : IPrintable
     {
         private string name;            // 命名
-        private Printer real;           // 「本人」
+        private Printer real;           // Printer
 
         public PrinterProxy()
         {
