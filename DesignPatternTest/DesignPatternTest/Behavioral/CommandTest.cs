@@ -10,11 +10,15 @@ namespace DesignPatternTest
     public class CommandTest
     {
         [Test]
-        public void people_array_foreach_count_correct()
+        public void command_injection_by_client()
         {
             //Instructor Injection Style
             (new ACommand()).execute(new DrawingImpl());
+        }
 
+        [Test]
+        public void command_delegate_for_client()
+        {
             //Delegate Style , no need ACommand
             Action<DrawingImpl> action = d =>
             {
