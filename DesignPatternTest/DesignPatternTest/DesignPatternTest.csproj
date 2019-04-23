@@ -47,13 +47,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdapterTest.cs" />
-    <Compile Include="ProxyTest.cs" />
-    <Compile Include="FlyweightTest.cs" />
-    <Compile Include="FacadeTest.cs" />
-    <Compile Include="BridgeTest.cs" />
-    <Compile Include="DecoratorTest.cs" />
-    <Compile Include="CompositeTest.cs" />
+    <Compile Include="Structural\AdapterTest.cs" />
+    <Compile Include="Structural\ProxyTest.cs" />
+    <Compile Include="Structural\FlyweightTest.cs" />
+    <Compile Include="Structural\FacadeTest.cs" />
+    <Compile Include="Structural\BridgeTest.cs" />
+    <Compile Include="Structural\DecoratorTest.cs" />
+    <Compile Include="Structural\CompositeTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
