@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Behavioral\CommandTest.cs" />
     <Compile Include="Behavioral\IteratorTest.cs" />
     <Compile Include="Structural\AdapterTest.cs" />
     <Compile Include="Structural\ProxyTest.cs" />
