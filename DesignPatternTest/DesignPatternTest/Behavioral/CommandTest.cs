@@ -20,7 +20,7 @@ namespace DesignPatternTest
         public void command_delegate_for_client()
         {
             //Delegate Style , no need ACommand
-            Action<DrawingImpl> action = d =>
+            Action<IDrawing> action = d =>
             {
                 d.processAnother();
                 d.processOther();
