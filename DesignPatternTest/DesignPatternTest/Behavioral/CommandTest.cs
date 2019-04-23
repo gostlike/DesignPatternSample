@@ -3,6 +3,9 @@ using System;
 
 namespace DesignPatternTest
 {
+    /// <summary>
+    /// Command Implement and Injection by Client
+    /// </summary>
     [TestFixture]
     public class CommandTest
     {
@@ -10,17 +13,16 @@ namespace DesignPatternTest
         public void people_array_foreach_count_correct()
         {
             //Instructor Injection Style
-            ICommand command = new ACommand();
-            command.execute(new DrawingImpl());
+            (new ACommand()).execute(new DrawingImpl());
 
-            //Delegate Style
+            //Delegate Style , no need ACommand
             Action<DrawingImpl> action = d =>
             {
                 d.processAnother();
                 d.processOther();
                 d.processSome();
             };
-
+            action(new DrawingImpl());
         }
     }
 
