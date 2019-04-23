@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using System;
+using System.Runtime.CompilerServices;
 
 namespace DesignPatternTest
 {
@@ -7,29 +8,18 @@ namespace DesignPatternTest
     public class BridgeTest
     {
         [Test]
-        public void playlist_play()
+        public void use_sony_remoteControl()
         {
-            Frame logo = new Frame("片頭 LOGO");
-
-            Playlist playlist1 = new Playlist();
-            playlist1.Add(new Frame("Duke 左揮手"));
-            playlist1.Add(new Frame("Duke 右揮手"));
-
-            Playlist playlist2 = new Playlist();
-            playlist2.Add(new Frame("Duke 走左腳"));
-            playlist2.Add(new Frame("Duke 走右腳"));
-
-            Playlist all = new Playlist();
-            all.Add(logo);
-            all.Add(playlist1._frames);
-            all.Add(playlist2._frames);
-
-            all.Play();
+          IRemoteControl remoteControl = new ConcreteRemote(new SonyTv());
+          remoteControl.GetTvName();
+          remoteControl.On();
+          remoteControl.Off();
+          remoteControl.SetChannel(199);
         }
     }
 
     // Abstraction
-    public interface RemoteControl
+    public interface IRemoteControl
     {
         void On();
 
@@ -37,11 +27,11 @@ namespace DesignPatternTest
 
         void SetChannel(int channel);
 
-        void GetTvName();
+        string GetTvName();
     }
 
     // Implementor
-    public interface TvFucntion
+    public interface ITvFucntion
     {
         // 這些是跟廠商高度相依的行為
         // 把這些行為封裝起來
@@ -50,44 +40,54 @@ namespace DesignPatternTest
         void Off();
 
         void SetChannel(int channel);
+
+        string getTvName();
     }
 
     // ConcreteImplementor
-    public class SonyTv : TvFucntion
+    public class SonyTv : ITvFucntion
     {
+        public string TvName = "Sony TV";
+        
+        public string getTvName()
+        {
+            return TvName;
+        }
+
         public void On()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Sony Tv On");
         }
 
         public void Off()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Sony Tv Off");
+
         }
 
         public void SetChannel(int channel)
         {
-            throw new NotImplementedException();
+            Console.WriteLine($"Sony Tv Set Channel :{channel}");
         }
     }
 
     // 搖控器實作, 就是 Abstraction 實作
-    public class ConcreteRemote : RemoteControl
+    public class ConcreteRemote : IRemoteControl
     {
         private String mTvName;
 
         // 與電視廠商相依的行為已經被封裝起來,
         // 搖控器不用管這些行為如何實作的
-        private TvFucntion mTvFunction;
+        private ITvFucntion tvImplementor;
 
-        public ConcreteRemote(TvFucntion tvFucntion)
+        public ConcreteRemote(ITvFucntion tvFucntion) 
         {
             // 只要替換掉 tvFucntion,
             // 就能操作不同廠商的電視
-            mTvFunction = tvFucntion;
+            tvImplementor = tvFucntion;
 
             // 這個當然也能封裝在 TvFuntion 裡
-            mTvName = "Sony TV";
+            mTvName = tvFucntion.getTvName();
         }
 
         // 以下就是橋接模式的威力所在,
@@ -95,22 +95,22 @@ namespace DesignPatternTest
 
         public void On()
         {
-            mTvFunction.On();
+            tvImplementor.On();
         }
 
         public void Off()
         {
-            mTvFunction.Off();
+            tvImplementor.Off();
         }
 
         public void SetChannel(int channel)
         {
-            mTvFunction.SetChannel(channel);
+            tvImplementor.SetChannel(channel);
         }
 
-        public void GetTvName()
+        public string GetTvName()
         {
-            throw new NotImplementedException();
+            return tvImplementor.getTvName();
         }
     }
 }
