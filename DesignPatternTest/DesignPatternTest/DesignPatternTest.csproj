@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdapterTest.cs" />
+    <Compile Include="FacadeTest.cs" />
     <Compile Include="BridgeTest.cs" />
     <Compile Include="DecoratorTest.cs" />
     <Compile Include="CompositeTest.cs" />
