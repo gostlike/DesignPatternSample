@@ -10,11 +10,9 @@ namespace DesignPatternTest
         public void Meal_Description_should_be_FiredChicken_FrenchFires_Drink()
         {
             //order FiredChicken
-            var meal3 = new FriedChicken();
             //order FrenchFires
-            var meal2 = new FrenchFires(meal3);
             //order Drink
-            var meal = new Drink(meal2);
+            var meal = new Drink(new FrenchFires(new FriedChicken()));
 
             Console.WriteLine(meal.Description());
 
