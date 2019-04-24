@@ -22,6 +22,13 @@ namespace DesignPatternTest
             shoppingCar = new ShoppingCar(new Price70off());
             shoppingCar.Counting(product);
         }
+
+        [Test]
+        public void shoppercar_50off()
+        {
+            var product = new Product(100, 50);
+            Console.WriteLine(ShoppingCar.counting2(product, 0.5m));
+        }
     }
 
     public interface IPrice
@@ -66,5 +73,7 @@ namespace DesignPatternTest
         {
             Console.WriteLine(priceCounter.price(product));
         }
+
+        public static Func<Product, decimal, decimal> counting2 = (p, discount) => p.price * discount;
     }
 }
