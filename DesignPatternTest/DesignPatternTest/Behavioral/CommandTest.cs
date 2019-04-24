@@ -13,24 +13,23 @@ namespace DesignPatternTest
         public void command_injection_by_client()
         {
             //Instructor Injection Style
+            //Client 
             (new ACommand()).execute(new DrawingImpl());
         }
 
         [Test]
         public void command_delegate_for_client()
         {
-            //Delegate Style , no need ACommand
-            //Server
-            Action<IDrawing> clientCustomProcess ;
-
-
-            //client 
-            clientCustomProcess = d =>
+            //Delegate Style
+            //Client Setting
+            Action<IDrawing> clientCustomProcess = d =>
             {
                 d.processAnother();
                 d.processOther();
                 d.processSome();
             };
+
+            //Server Implement
             clientCustomProcess(new DrawingImpl());
         }
     }

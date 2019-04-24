@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Behavioral\ChainOfResponsibility.cs" />
+    <Compile Include="Behavioral\StrategyTest.cs" />
     <Compile Include="Behavioral\CommandTest.cs" />
     <Compile Include="Behavioral\IteratorTest.cs" />
     <Compile Include="Structural\AdapterTest.cs" />
