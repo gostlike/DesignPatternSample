@@ -20,13 +20,18 @@ namespace DesignPatternTest
         public void command_delegate_for_client()
         {
             //Delegate Style , no need ACommand
-            Action<IDrawing> action = d =>
+            //Server
+            Action<IDrawing> clientCustomProcess ;
+
+
+            //client 
+            clientCustomProcess = d =>
             {
                 d.processAnother();
                 d.processOther();
                 d.processSome();
             };
-            action(new DrawingImpl());
+            clientCustomProcess(new DrawingImpl());
         }
     }
 
