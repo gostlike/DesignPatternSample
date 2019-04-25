@@ -13,13 +13,13 @@ namespace DesignPatternTest
         public void shoppercar_80off()
         {
             var product = new Product(100,50);
-            var shoppingCar = new ShoppingCar(new Price80off());
+            var shoppingCar = new ShoppingCar(new Price80Off());
             shoppingCar.Counting(product);
 
-            shoppingCar = new ShoppingCar(new Price60off());
+            shoppingCar = new ShoppingCar(new Price60Off());
             shoppingCar.Counting(product);
 
-            shoppingCar = new ShoppingCar(new Price70off());
+            shoppingCar = new ShoppingCar(new Price70Off());
             shoppingCar.Counting(product);
         }
 
@@ -36,7 +36,7 @@ namespace DesignPatternTest
         decimal price(Product product);
     }
 
-    public class Price80off:IPrice
+    public class Price80Off:IPrice
     {
         public decimal price(Product product)
         {
@@ -44,7 +44,7 @@ namespace DesignPatternTest
         }
     }
 
-    public class Price70off : IPrice
+    public class Price70Off : IPrice
     {
         public decimal price(Product product)
         {
@@ -52,7 +52,7 @@ namespace DesignPatternTest
         }
     }
 
-    public class Price60off : IPrice
+    public class Price60Off : IPrice
     {
         public decimal price(Product product)
         {

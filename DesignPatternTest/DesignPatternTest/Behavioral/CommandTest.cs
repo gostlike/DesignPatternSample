@@ -13,7 +13,7 @@ namespace DesignPatternTest
         public void command_injection_by_client()
         {
             //Instructor Injection Style
-            //Client 
+            //Client define ACCommand, Server Execute
             (new ACommand()).execute(new DrawingImpl());
         }
 
