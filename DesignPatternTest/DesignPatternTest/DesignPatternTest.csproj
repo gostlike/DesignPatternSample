@@ -50,6 +50,7 @@
     <Compile Include="Behavioral\ChainOfResponsibility.cs" />
     <Compile Include="Behavioral\Mediator.cs" />
     <Compile Include="Behavioral\ObserverTest.cs" />
+    <Compile Include="Behavioral\MementoTest.cs" />
     <Compile Include="Behavioral\StateTest.cs" />
     <Compile Include="Behavioral\TemplateMethod.cs" />
     <Compile Include="Behavioral\StrategyTest.cs" />
