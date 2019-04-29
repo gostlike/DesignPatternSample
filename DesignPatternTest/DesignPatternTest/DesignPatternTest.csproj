@@ -48,7 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Behavioral\ChainOfResponsibility.cs" />
-    <Compile Include="Behavioral\Mediator.cs" />
+    <Compile Include="Behavioral\MediatorTest.cs" />
     <Compile Include="Behavioral\ObserverTest.cs" />
     <Compile Include="Behavioral\MementoTest.cs" />
     <Compile Include="Behavioral\StateTest.cs" />
