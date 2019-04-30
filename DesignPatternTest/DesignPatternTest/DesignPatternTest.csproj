@@ -51,6 +51,7 @@
     <Compile Include="Behavioral\MediatorTest.cs" />
     <Compile Include="Behavioral\ObserverTest.cs" />
     <Compile Include="Behavioral\MementoTest.cs" />
+    <Compile Include="Behavioral\VistorTest.cs" />
     <Compile Include="Behavioral\StateTest.cs" />
     <Compile Include="Behavioral\TemplateMethod.cs" />
     <Compile Include="Behavioral\StrategyTest.cs" />
