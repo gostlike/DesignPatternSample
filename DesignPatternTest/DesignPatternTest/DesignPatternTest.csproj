@@ -58,6 +58,7 @@
     <Compile Include="Behavioral\StrategyTest.cs" />
     <Compile Include="Behavioral\CommandTest.cs" />
     <Compile Include="Behavioral\IteratorTest.cs" />
+    <Compile Include="Creational\FactoryTest.cs" />
     <Compile Include="Structural\AdapterTest.cs" />
     <Compile Include="Structural\ProxyTest.cs" />
     <Compile Include="Structural\FlyweightTest.cs" />
