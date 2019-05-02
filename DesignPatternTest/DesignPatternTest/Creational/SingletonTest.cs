@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using System;
+using System.Collections;
 
 namespace DesignPatternTest
 {
@@ -79,6 +80,27 @@ namespace DesignPatternTest
         public static EagerSingleton GetInstance()
         {
             return instance;
+        }
+    }
+
+    public class RegistrySingleton
+    {
+        private static Hashtable registry = new Hashtable();
+
+        public static object getInstance(string classname)
+        {
+            var singleton = registry[classname];
+            if (singleton == null)
+            {
+                singleton = Activator.CreateInstance(Type.GetType(classname,true));
+                register(classname, singleton);
+            }
+            return singleton;
+        }
+
+        public static void register(string classname, object singleton)
+        {
+            registry.Add(classname, singleton);
         }
     }
 }
