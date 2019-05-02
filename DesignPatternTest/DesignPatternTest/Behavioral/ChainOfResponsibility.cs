@@ -15,7 +15,7 @@ namespace DesignPatternTest
         public void manager_approve_leave_chain_by_ChainOfResponsibility()
         {
             ManagerHandler manager = new Manager("Manager");
-            ManagerHandler director = new Director("Director");
+            ManagerHandler director = new DirectorManager("Director");
             ManagerHandler generalManager = new GeneralManager("GenerManager");
             manager.SetUpManager(director);
             director.SetUpManager(generalManager);
@@ -86,9 +86,9 @@ namespace DesignPatternTest
         }
     }
 
-    public class Director : ManagerHandler
+    public class DirectorManager : ManagerHandler
     {
-        public Director(string name) : base(name)
+        public DirectorManager(string name) : base(name)
         {
         }
 
