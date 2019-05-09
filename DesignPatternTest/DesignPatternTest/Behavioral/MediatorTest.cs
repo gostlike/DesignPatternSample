@@ -10,6 +10,29 @@ namespace DesignPatternTest
     public class MediatorTest
     {
         [Test]
+        public void Commander_receive_medic_ready()
+        {
+            var commander = new ConcreteMediator(); // 中介者
+
+            var medic = new MedicColleague("醫護兵", commander); // 醫護兵
+            var infantry = new InfantryColleague("戰士", commander); // 步兵
+
+            medic.Send("normal", "醫護兵待命");
+        }
+
+        [Test]
+        public void Commander_receive_infantry_ready()
+        {
+            var commander = new ConcreteMediator(); // 中介者
+
+            var medic = new MedicColleague("醫護兵", commander); // 醫護兵
+            var infantry = new InfantryColleague("戰士", commander); // 步兵
+          
+            infantry.Send("normal", "战士待命");
+
+        }
+
+        [Test]
         public void MakeDrink_by_Recipe()
         {
             var commander = new ConcreteMediator(); // 中介者
@@ -18,7 +41,7 @@ namespace DesignPatternTest
             var infantry = new InfantryColleague("戰士", commander); // 步兵
 
             medic.Send("normal", "醫護兵待命");
-            infantry.Send("normal", "準備戰鬥");
+            infantry.Send("normal", "战士待命");
             medic.Send("attack", "遭受敵人攻擊");
             infantry.Send("hurt", "我中彈了");
         }
@@ -51,7 +74,7 @@ namespace DesignPatternTest
         // 中介者處理接收到的訊息
         public override void Work(string msgType, string msgCon, Colleague colleague)
         {
-            Console.WriteLine("指揮官 接收到 {0} 訊息：{1} => 準備下達命令貨同步...", colleague.Name, msgCon);
+            Console.WriteLine("指揮官 接收到 {0} 訊息：{1} (準備下達命令或同步...)", colleague.Name, msgCon);
             switch (msgType)
             {
                 case "hurt":
